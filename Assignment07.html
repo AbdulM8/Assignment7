@@ -1,0 +1,200 @@
+<!--CSCI 355 Internet Web Technologies
+Summer 2024
+Abdul Mutallif
+Assignment 7 -  Basic Webpage
+Worked by myself
+Sources: Listed in the functions/code-->
+
+<!--[1] Create a basic webpage with the following main menu and submenu items:
+
+Course - with submenu items relevant to our course
+link to Kurose and Ross author/book page
+link to http://w3schools.com
+link to https://www.geeksforgeeks.org/web-development/
+See https://www.w3schools.com/howto/default.asp
+Browser - with submenu items respectively communicating the following attributes
+Navigator - appName, product, appVersion, userAgent, platform, language
+Window - innerHeight, innerWidth
+Screen - width, height, availWidth, availHeight, colorDepth, pixelDepth
+Location - href, hostname, pathname, protocol
+Geolocation - Latitude, Longitude
+See https://www.w3schools.com/js/js_window.asp
+About – with submenu items to
+Description of the developer of the page (i.e. you, the student) with optional photo
+Contact Me email form - see to contact you by email.
+See https://www.w3schools.com/html/tryit.asp?filename=tryhtml_form_mail
+Also Used: https://www.w3schools.com/js/js_api_geolocation.asp
+
+[2] Use a CSS file to style your site
+
+[3] Upload the field to the QC CS Department server and verify that your page works. Refer to these instructions:
+
+https://venus.cs.qc.cuny.edu/~xiuyi/linux_login.html
+https://venus.cs.qc.cuny.edu/~xiuyi/webpage_setup.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Webpage</title>
+    <link rel="stylesheet" href="mystyle.css">
+
+</head>
+
+<body>
+    <div class="menu">
+        <span>&#9776;</span>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">Course</a>
+            <div class="submenu">
+                <a href="https://gaia.cs.umass.edu/kurose_ross/authors.php" target="_blank">Kurose and Ross</a>
+                <a href="http://w3schools.com" target="_blank">W3Schools</a>
+                <a href="https://www.geeksforgeeks.org/web-development/" target="_blank">GeeksforGeeks</a>
+            </div>
+
+            <a href="#">Browser</a>
+            <div class="submenu">
+                <a href="javascript:void(0)" onmouseover="displayWindowAttributes()" onmouseout="hideWindowAttributes()">Window</a>
+                <div id="windowAttributes">
+                    <p>innerHeight: <span id="innerHeight"></span></p>
+                    <p>innerWidth: <span id="innerWidth"></span></p>
+                </div>
+
+                <a href="javascript:void(0)" onmouseover="displayNavigatorAttributes()" onmouseout="hideNavigatorAttributes()">Navigator</a>
+                <div id="navigatorAttributes">
+                    <p>appName: <span id="appName"></span></p>
+                    <p>appVersion: <span id="appVersion"></span></p>
+                    <p>platform: <span id="platform"></span></p>
+                    <p>userAgent: <span id="userAgent"></span></p>
+                </div>
+
+                <a href="javascript:void(0)" onmouseover="displayScreenAttributes()" onmouseout="hideScreenAttributes()">Screen</a>
+                <div id="screenAttributes">
+                    <p>width: <span id="screenWidth"></span></p>
+                    <p>height: <span id="screenHeight"></span></p>
+                    <p>availWidth: <span id="screenAvailWidth"></span></p>
+                    <p>availHeight: <span id="screenAvailHeight"></span></p>
+                    <p>colorDepth: <span id="screenColorDepth"></span></p>
+                    <p>pixelDepth: <span id="screenPixelDepth"></span></p>
+                </div>
+
+                <a href="javascript:void(0)" onmouseover="displayLocationAttributes()" onmouseout="hideLocationAttributes()">Location</a>
+                <div id="locationAttributes">
+                    <p>href: <span id="locationHref"></span></p>
+                    <p>hostname: <span id="locationHostname"></span></p>
+                    <p>pathname: <span id="locationPathname"></span></p>
+                    <p>protocol: <span id="locationProtocol"></span></p>
+                </div>
+
+                <a href="javascript:void(0)" onmouseover="getLocation()" onmouseout="hideGeolocationAttributes()">Geolocation</a>
+                <div id="geolocationAttributes">
+                    <p>Latitude: <span id="latitude"></span></p>
+                    <p>Longitude: <span id="longitude"></span></p>
+                </div>
+            </div>
+
+            <a href="#">About</a>
+            <div class="submenu">
+                <a href="#developer">Developer Info</a>
+                <a href="#contact">Contact Me</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="main">
+        <h1>Basic Webpage Assignment</h1>
+        <section id="developer">
+            <h2>About the Developer</h2>
+            <p>My name is Abdul Mutallif. I am a student at Queens College, CUNY. This is a simple webpage for my Internet and Web Technologies class.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+                Name:<br>
+                <input type="text" name="name"><br>
+                E-mail:<br>
+                <input type="text" name="mail"><br>
+                Comment:<br>
+                <input type="text" name="comment" size="50"><br><br>
+                <input type="submit" value="Send">
+                <input type="reset" value="Reset">
+            </form>
+        </section>
+    </div>
+
+    <script>
+        function displayWindowAttributes() {
+            document.getElementById('innerHeight').innerHTML = window.innerHeight;
+            document.getElementById('innerWidth').innerHTML = window.innerWidth;
+            document.getElementById('windowAttributes').style.display = 'block';
+        }
+
+        function hideWindowAttributes() {
+            document.getElementById('windowAttributes').style.display = 'none';
+        }
+
+        function displayNavigatorAttributes() {
+            document.getElementById('appName').innerHTML = navigator.appName;
+            document.getElementById('appVersion').innerHTML = navigator.appVersion;
+            document.getElementById('platform').innerHTML = navigator.platform;
+            document.getElementById('userAgent').innerHTML = navigator.userAgent;
+            document.getElementById('navigatorAttributes').style.display = 'block';
+        }
+
+        function hideNavigatorAttributes() {
+            document.getElementById('navigatorAttributes').style.display = 'none';
+        }
+
+        function displayScreenAttributes() {
+            document.getElementById('screenWidth').innerHTML = screen.width;
+            document.getElementById('screenHeight').innerHTML = screen.height;
+            document.getElementById('screenAvailWidth').innerHTML = screen.availWidth;
+            document.getElementById('screenAvailHeight').innerHTML = screen.availHeight;
+            document.getElementById('screenColorDepth').innerHTML = screen.colorDepth;
+            document.getElementById('screenPixelDepth').innerHTML = screen.pixelDepth;
+            document.getElementById('screenAttributes').style.display = 'block';
+        }
+
+        function hideScreenAttributes() {
+            document.getElementById('screenAttributes').style.display = 'none';
+        }
+
+        function displayLocationAttributes() {
+            document.getElementById('locationHref').innerHTML = window.location.href;
+            document.getElementById('locationHostname').innerHTML = window.location.hostname;
+            document.getElementById('locationPathname').innerHTML = window.location.pathname;
+            document.getElementById('locationProtocol').innerHTML = window.location.protocol;
+            document.getElementById('locationAttributes').style.display = 'block';
+        }
+
+        function hideLocationAttributes() {
+            document.getElementById('locationAttributes').style.display = 'none';
+        }
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, function() {
+
+                });
+            } else {
+                document.getElementById('latitude').innerHTML = 'Geolocation is not supported by this browser.';
+                document.getElementById('longitude').innerHTML = '';
+                document.getElementById('geolocationAttributes').style.display = 'block';
+            }
+        }
+
+        function showPosition(position) {
+            document.getElementById('latitude').innerHTML = position.coords.latitude;
+            document.getElementById('longitude').innerHTML = position.coords.longitude;
+            document.getElementById('geolocationAttributes').style.display = 'block';
+        }
+
+        function hideGeolocationAttributes() {
+            document.getElementById('geolocationAttributes').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

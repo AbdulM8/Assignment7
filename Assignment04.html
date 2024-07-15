@@ -1,0 +1,342 @@
+<html><head><meta name="description" content="OutputUtil developed by LT. Executed by C:\Users\abdul\PycharmProjects\pythonProject">
+<style>body {
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+    color: blue;
+    text-align: center;
+}
+h3 {
+    color: blue;
+}
+.vericaltext {
+ writing-mode: vertical-lr;
+ text-orientation: upright;
+}
+
+table, th, td {
+    border: 1px solid;
+    text-align: center;
+    vertical-align: top
+}
+th > a {
+    color: lavender;
+}
+th {
+    background-color: blue;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: white;
+    color: red;
+}
+tr:nth-child(odd) {
+    background-color: red;
+    color: white;
+}</style>
+<script>
+function sortTable(tableId, colNum, colType) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchCount = 0;
+  table = document.getElementById(tableId);
+  switching = true;
+  dir = "asc";
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("td")[colNum];
+      y = rows[i + 1].getElementsByTagName("td")[colNum];
+      if (colType == 'N') { 
+        if (((dir == "asc") && (Number(x.innerHTML) > Number(y.innerHTML))) ||
+            ((dir == "desc") && (Number(x.innerHTML) < Number(y.innerHTML)))) {
+          shouldSwitch = true;
+          break;
+        }
+      } else {
+        if (((dir == "asc") && (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase())) ||
+            ((dir == "desc") && (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()))) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      switchCount ++;
+    } else {
+     if (switchCount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+</head>
+<body><h1>United States of America</h1>
+<table id="table-913" style="width:100%"><th><a href="javascript:sortTable('table-913', 0, 'S')"">state</a>
+</th>
+<th><a href="javascript:sortTable('table-913', 1, 'S')"">abrv</a>
+</th>
+<th><a href="javascript:sortTable('table-913', 2, 'S')"">capital</a>
+</th>
+<th><a href="javascript:sortTable('table-913', 3, 'N')"">population</a>
+</th>
+<tr><td style="text-align:left;">Alabama</td>
+<td style="text-align:center;">AL</td>
+<td style="text-align:left;">Montgomery</td>
+<td style="text-align:right;">196010</td>
+</tr>
+<tr><td style="text-align:left;">Alaska</td>
+<td style="text-align:center;">AK</td>
+<td style="text-align:left;">Juneau</td>
+<td style="text-align:right;">31534</td>
+</tr>
+<tr><td style="text-align:left;">Arizona</td>
+<td style="text-align:center;">AZ</td>
+<td style="text-align:left;">Phoenix</td>
+<td style="text-align:right;">1651344</td>
+</tr>
+<tr><td style="text-align:left;">Arkansas</td>
+<td style="text-align:center;">AR</td>
+<td style="text-align:left;">Little Rock</td>
+<td style="text-align:right;">201029</td>
+</tr>
+<tr><td style="text-align:left;">California</td>
+<td style="text-align:center;">CA</td>
+<td style="text-align:left;">Sacramento</td>
+<td style="text-align:right;">528306</td>
+</tr>
+<tr><td style="text-align:left;">Colorado</td>
+<td style="text-align:center;">CO</td>
+<td style="text-align:left;">Denver</td>
+<td style="text-align:right;">699288</td>
+</tr>
+<tr><td style="text-align:left;">Connecticut</td>
+<td style="text-align:center;">CT</td>
+<td style="text-align:left;">Hartford</td>
+<td style="text-align:right;">119817</td>
+</tr>
+<tr><td style="text-align:left;">Delaware</td>
+<td style="text-align:center;">DE</td>
+<td style="text-align:left;">Dover</td>
+<td style="text-align:right;">37892</td>
+</tr>
+<tr><td style="text-align:left;">Florida</td>
+<td style="text-align:center;">FL</td>
+<td style="text-align:left;">Tallahassee</td>
+<td style="text-align:right;">198631</td>
+</tr>
+<tr><td style="text-align:left;">Georgia</td>
+<td style="text-align:center;">GA</td>
+<td style="text-align:left;">Atlanta</td>
+<td style="text-align:right;">490270</td>
+</tr>
+<tr><td style="text-align:left;">Hawaii</td>
+<td style="text-align:center;">HI</td>
+<td style="text-align:left;">Honolulu</td>
+<td style="text-align:right;">337088</td>
+</tr>
+<tr><td style="text-align:left;">Idaho</td>
+<td style="text-align:center;">ID</td>
+<td style="text-align:left;">Boise</td>
+<td style="text-align:right;">240713</td>
+</tr>
+<tr><td style="text-align:left;">Illinois</td>
+<td style="text-align:center;">IL</td>
+<td style="text-align:left;">Springfield</td>
+<td style="text-align:right;">111711</td>
+</tr>
+<tr><td style="text-align:left;">Indiana</td>
+<td style="text-align:center;">IN</td>
+<td style="text-align:left;">Indianapolis</td>
+<td style="text-align:right;">871449</td>
+</tr>
+<tr><td style="text-align:left;">Iowa</td>
+<td style="text-align:center;">IA</td>
+<td style="text-align:left;">Des Moines</td>
+<td style="text-align:right;">208734</td>
+</tr>
+<tr><td style="text-align:left;">Kansas</td>
+<td style="text-align:center;">KS</td>
+<td style="text-align:left;">Topeka</td>
+<td style="text-align:right;">125353</td>
+</tr>
+<tr><td style="text-align:left;">Kentucky</td>
+<td style="text-align:center;">KY</td>
+<td style="text-align:left;">Frankfort</td>
+<td style="text-align:right;">28523</td>
+</tr>
+<tr><td style="text-align:left;">Louisiana</td>
+<td style="text-align:center;">LA</td>
+<td style="text-align:left;">Baton Rouge</td>
+<td style="text-align:right;">217665</td>
+</tr>
+<tr><td style="text-align:left;">Maine</td>
+<td style="text-align:center;">ME</td>
+<td style="text-align:left;">Augusta</td>
+<td style="text-align:right;">19058</td>
+</tr>
+<tr><td style="text-align:left;">Maryland</td>
+<td style="text-align:center;">MD</td>
+<td style="text-align:left;">Annapolis</td>
+<td style="text-align:right;">40397</td>
+</tr>
+<tr><td style="text-align:left;">Massachusetts</td>
+<td style="text-align:center;">MA</td>
+<td style="text-align:left;">Boston</td>
+<td style="text-align:right;">617459</td>
+</tr>
+<tr><td style="text-align:left;">Michigan</td>
+<td style="text-align:center;">MI</td>
+<td style="text-align:left;">Lansing</td>
+<td style="text-align:right;">112460</td>
+</tr>
+<tr><td style="text-align:left;">Minnesota</td>
+<td style="text-align:center;">MN</td>
+<td style="text-align:left;">St. Paul</td>
+<td style="text-align:right;">299830</td>
+</tr>
+<tr><td style="text-align:left;">Mississippi</td>
+<td style="text-align:center;">MS</td>
+<td style="text-align:left;">Jackson</td>
+<td style="text-align:right;">143776</td>
+</tr>
+<tr><td style="text-align:left;">Missouri</td>
+<td style="text-align:center;">MO</td>
+<td style="text-align:left;">Jefferson City</td>
+<td style="text-align:right;">42535</td>
+</tr>
+<tr><td style="text-align:left;">Montana</td>
+<td style="text-align:center;">MT</td>
+<td style="text-align:left;">Helena</td>
+<td style="text-align:right;">34690</td>
+</tr>
+<tr><td style="text-align:left;">Nebraska</td>
+<td style="text-align:center;">NE</td>
+<td style="text-align:left;">Lincoln</td>
+<td style="text-align:right;">295222</td>
+</tr>
+<tr><td style="text-align:left;">Nevada</td>
+<td style="text-align:center;">NV</td>
+<td style="text-align:left;">Carson City</td>
+<td style="text-align:right;">59630</td>
+</tr>
+<tr><td style="text-align:left;">New Hampshire</td>
+<td style="text-align:center;">NH</td>
+<td style="text-align:left;">Concord</td>
+<td style="text-align:right;">44606</td>
+</tr>
+<tr><td style="text-align:left;">New Jersey</td>
+<td style="text-align:center;">NJ</td>
+<td style="text-align:left;">Trenton</td>
+<td style="text-align:right;">90048</td>
+</tr>
+<tr><td style="text-align:left;">New Mexico</td>
+<td style="text-align:center;">NM</td>
+<td style="text-align:left;">Santa Fe</td>
+<td style="text-align:right;">89220</td>
+</tr>
+<tr><td style="text-align:left;">New York</td>
+<td style="text-align:center;">NY</td>
+<td style="text-align:left;">Albany</td>
+<td style="text-align:right;">97593</td>
+</tr>
+<tr><td style="text-align:left;">North Carolina</td>
+<td style="text-align:center;">NC</td>
+<td style="text-align:left;">Raleigh</td>
+<td style="text-align:right;">472540</td>
+</tr>
+<tr><td style="text-align:left;">North Dakota</td>
+<td style="text-align:center;">ND</td>
+<td style="text-align:left;">Bismarck</td>
+<td style="text-align:right;">75073</td>
+</tr>
+<tr><td style="text-align:left;">Ohio</td>
+<td style="text-align:center;">OH</td>
+<td style="text-align:left;">Columbus</td>
+<td style="text-align:right;">907865</td>
+</tr>
+<tr><td style="text-align:left;">Oklahoma</td>
+<td style="text-align:center;">OK</td>
+<td style="text-align:left;">Oklahoma City</td>
+<td style="text-align:right;">697763</td>
+</tr>
+<tr><td style="text-align:left;">Oregon</td>
+<td style="text-align:center;">OR</td>
+<td style="text-align:left;">Salem</td>
+<td style="text-align:right;">181620</td>
+</tr>
+<tr><td style="text-align:left;">Pennsylvania</td>
+<td style="text-align:center;">PA</td>
+<td style="text-align:left;">Harrisburg</td>
+<td style="text-align:right;">50267</td>
+</tr>
+<tr><td style="text-align:left;">Rhode Island</td>
+<td style="text-align:center;">RI</td>
+<td style="text-align:left;">Providence</td>
+<td style="text-align:right;">188877</td>
+</tr>
+<tr><td style="text-align:left;">South Carolina</td>
+<td style="text-align:center;">SC</td>
+<td style="text-align:left;">Columbia</td>
+<td style="text-align:right;">137996</td>
+</tr>
+<tr><td style="text-align:left;">South Dakota</td>
+<td style="text-align:center;">SD</td>
+<td style="text-align:left;">Pierre</td>
+<td style="text-align:right;">13954</td>
+</tr>
+<tr><td style="text-align:left;">Tennessee</td>
+<td style="text-align:center;">TN</td>
+<td style="text-align:left;">Nashville</td>
+<td style="text-align:right;">658525</td>
+</tr>
+<tr><td style="text-align:left;">Texas</td>
+<td style="text-align:center;">TX</td>
+<td style="text-align:left;">Austin</td>
+<td style="text-align:right;">966292</td>
+</tr>
+<tr><td style="text-align:left;">Utah</td>
+<td style="text-align:center;">UT</td>
+<td style="text-align:left;">Salt Lake City</td>
+<td style="text-align:right;">202272</td>
+</tr>
+<tr><td style="text-align:left;">Vermont</td>
+<td style="text-align:center;">VT</td>
+<td style="text-align:left;">Montpelier</td>
+<td style="text-align:right;">7988</td>
+</tr>
+<tr><td style="text-align:left;">Virginia</td>
+<td style="text-align:center;">VA</td>
+<td style="text-align:left;">Richmond</td>
+<td style="text-align:right;">226472</td>
+</tr>
+<tr><td style="text-align:left;">Washington</td>
+<td style="text-align:center;">WA</td>
+<td style="text-align:left;">Olympia</td>
+<td style="text-align:right;">56510</td>
+</tr>
+<tr><td style="text-align:left;">West Virginia</td>
+<td style="text-align:center;">WV</td>
+<td style="text-align:left;">Charleston</td>
+<td style="text-align:right;">46692</td>
+</tr>
+<tr><td style="text-align:left;">Wisconsin</td>
+<td style="text-align:center;">WI</td>
+<td style="text-align:left;">Madison</td>
+<td style="text-align:right;">269897</td>
+</tr>
+<tr><td style="text-align:left;">Wyoming</td>
+<td style="text-align:center;">WY</td>
+<td style="text-align:left;">Cheyenne</td>
+<td style="text-align:right;">64831</td>
+</tr>
+</table>
+<center><h6>&copy;2024 • All Rights Reserved • Generated on Jul. 09, 2024 19:45 PM</h6>
+</center>
+</body>
+</html>
